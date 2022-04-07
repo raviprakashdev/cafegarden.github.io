@@ -15,11 +15,11 @@ import Gallery from './components/Gallery';
 import Blogs from './components/Blogs';
 import About from './components/About';
 import Contact from './components/Contact';
-import Footer from './components/Footer';
+import Footer from './components/Footer'; 
 
 function App() {
   return (
-    <div className="App">
+    <div className="App">       
 
       <Router>
 
