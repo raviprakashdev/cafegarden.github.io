@@ -1,0 +1,41 @@
+
+var express = require('express');
+var app = express();
+var bodyParser = require('body-parser');
+
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
+app.use(express.static('public'));
+app.get('/index.html', function (req, res) {
+res.sendFile( __dirname + "/" + "index.html" );
+})
+app.post('/welcome', urlencodedParser, function (req, res) {
+// Prepare output in JSON format
+response = {
+first_name:req.body.name,
+last_name:req.body.lname
+};
+console.log(response);
+res.end(JSON.stringify(response));
+})
+ app.listen(8082, function () {
+
+console.log("Example app listening at 8082");
+});
+
+
+
+
+
+3:54 PM
+
+Gunjan Sachdeva to Everyone
+
+<html>
+<body>
+<form action = "http://127.0.0.1:8082/welcome" method = "POST">
+First Name: <input type = "text" name = "name"> <br>
+Password <input type = "password" name = "lname">
+<input type = "submit" value = "Submit">
+</form>
+</body>
+</html>
